@@ -1,0 +1,206 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+#bar {
+  position: absolute;
+  left: 200px;
+  top: 80px;
+}
+.menuItem {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding-top: 12px;
+  padding-bottom: 2px;
+  background-color: #ededed;
+  float: left;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+}
+#userNameTop {
+  border-bottom: solid 5px red;
+  color: red;
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  opacity: 0.8;
+  margin-left: 0px;
+  border-radius: 1px;
+}
+
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+  overflow: hidden;
+}
+
+* {
+  font-family: "Gill Sans", sans-serif;
+  color: rgb(103, 103, 103);
+}
+
+.opinion {
+  background-color: white;
+  z-index: 2;
+  text-align: center;
+  position: absolute;
+  left: 99%;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  height: 550px;
+  width: 600px;
+  padding: 50px;
+  display: grid;
+  gap: 10px;
+  border-radius: 20px;
+  border: rgb(205, 205, 205) solid 0.1px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.opinion div {
+  z-index: 2;
+  position: relative;
+  width: 500px;
+  height: 150px;
+  padding: 0 50px;
+  border-radius: 20px;
+  border: rgb(205, 205, 205) solid 0.1px;
+  transition: all 0.2s;
+  text-align: center;
+}
+.opinion div:hover {
+  border: rgb(119, 119, 119) solid 1px;
+  background-color: rgb(251, 251, 251);
+}
+.opinion div p {
+  transition: left, top 0.2s;
+  margin: none;
+  position: absolute;
+  font-size: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.opinion div:hover p {
+  font-size: 20px;
+  left: 0%;
+  top: 0%;
+  position: relative;
+  transform: translate(0%, 0%);
+}
+.choose {
+  position: absolute;
+  left: 50%;
+
+  transform: translate(-50%, 0%);
+
+  height: 0px !important;
+  padding: 0px 0px;
+  border: none !important;
+  display: flex;
+  justify-content: space-between;
+}
+.choose .choise {
+  position: relative;
+  background-color: white;
+  border: none;
+  transform: translate(0, 20px);
+  width: 80px;
+  cursor: pointer;
+  opacity: 0;
+  height: 80px;
+  padding: 0px 0px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  transition: all 0s;
+  border-radius: 20px;
+}
+.opinion div:hover .choose .choise {
+  transform: translate(0px, 0px);
+  transition: all 0.3s;
+  opacity: 1 !important;
+  border: rgb(205, 205, 205) solid 0.1px;
+}
+.opinion div .choose .choise:hover {
+  border: rgb(119, 119, 119) solid 1px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 9px 0px;
+
+  transform: translate(0%, -10%);
+}
+.chat {
+  z-index: -1;
+  opacity: 0;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all 1s;
+  height: 550px;
+  padding: 50px 5vw;
+  width: 90vw;
+  scale: 110%;
+
+  position: fixed;
+  background-color: rgb(221, 221, 221);
+  border-radius: 5px;
+}
+.chat p {
+  overflow-x: auto;
+  border-radius: 10px;
+  padding: 20px 30px;
+  background-color: aliceblue;
+  position: relative;
+  max-width: 500px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 5px;
+}
+#textChat {
+  position: fixed;
+  width: 0px;
+  height: 50px;
+  left: 50%;
+  top: 100%;
+  padding: 10px 40px;
+  font-size: 23px;
+  margin: 0;
+  border: rgb(0, 0, 0) solid 0.1px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 15px;
+  transition: width 1.2s;
+  transform: translate(-50%, -50%);
+}
+#textChat:focus {
+  outline: none;
+  background-color: aliceblue;
+}
+.messages {
+  bottom: 0;
+  overflow-y: auto;
+  position: relative;
+  height: 100%;
+}
+.profilePic {
+  z-index: -2;
+  position: absolute;
+  transform: translate(0%, -50%);
+  top: 60%;
+  left: 200px;
+  border-radius: 50%;
+  height: 450px;
+  width: 450px;
+  border: solid 1px rgb(205, 205, 205);
+  color: rgb(205, 205, 205);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userNameTop {
+  position: absolute;
+
+  left: 200px;
+  transform: translate(0, -50%);
+  padding: 20px;
+  border-bottom: solid black 0.1px;
+}

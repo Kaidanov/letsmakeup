@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+#bar {
+  position: absolute;
+  left: 200px;
+  top: 80px;
+}
+* {
+  font-family: "Gill Sans", sans-serif;
+  color: rgb(103, 103, 103);
+}
+p {
+  cursor: pointer;
+}
+p:active {
+  scale: 95%;
+}
+.menuItem {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding-top: 12px;
+  padding-bottom: 2px;
+  background-color: #ededed;
+  float: left;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+}
+#userNameTop {
+  border-bottom: solid 5px red;
+  color: red;
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  opacity: 0.8;
+  margin-left: 0px;
+  border-radius: 1px;
+}
+
+body {
+  font-family: "Comic Sans MS", sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background: white;
+  border: 2px solid #000;
+  padding: 40px;
+  width: 320px;
+  box-shadow: 10px 10px 0 #000;
+  text-align: center;
+}
+.signApp-container {
+  background: white;
+  border: 2px solid #000;
+  padding: 40px;
+  width: 320px;
+  box-shadow: 10px 10px 0 #000;
+  text-align: center;
+  display: none;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  font-size: 14px;
+}
+
+button {
+  background-color: #ffcc00;
+  border: 2px solid #000;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #ffeb3b;
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 30px;
+  }
+}

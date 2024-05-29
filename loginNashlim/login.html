@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="login.css" />
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="bar">
+      <div id="userNameTop"></div>
+      <a href="../chatNashlim/home.html">
+        <div alt="1" class="menuItem">Home</div></a
+      >
+
+      <div alt="4" class="menuItem">About</div>
+    </div>
+
+    <div id="logIn" class="login-container">
+      <h1>Login</h1>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Login</button>
+
+        <div id="message" style="margin-top: 10px"></div>
+        <p onclick="signApp()">dont hava an account? sign up</p>
+      </form>
+    </div>
+    <div id="signUp" class="signApp-container">
+      <h1>signUp</h1>
+      <form id="signUpForm">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="S_username" name="username" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="S_password" name="password" required />
+        </div>
+
+        <button type="submit">sign up</button>
+        <div id="message2" style="margin-top: 10px"></div>
+        <p onclick="logIn()">already have an account? log in</p>
+      </form>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>

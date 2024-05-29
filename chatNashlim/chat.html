@@ -1,0 +1,165 @@
+<!--  Chat in fewer than 10 lines of JavaScript code using PubNub JavaScript SDK -->
+<!--  This demo also contains helper and UI code.  For beginning of PubNub code, scroll down to "Begin count:..." -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="chat.css" />
+    <!--  Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" type="image/png" href="icon.png" />
+    <meta
+      name="description"
+      content="Example of a JavaScript chat app using the PubNub JavaScript SDK"
+    />
+    <meta
+      name="keywords"
+      content="JavaScript,PubNub,Chat,chat-room,chatting,SDK,PubSub-sdk,tutorial"
+    />
+    <meta name="author" content="Chandler Mayo" />
+    <meta name="author" content="Darryn Campbell" />
+    <title>JavaScript Chat Demo in 10 lines of code | PubNub</title>
+    <!--  Code syntax highlighting -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <!--  Interactive demo only -->
+    <script
+      type="text/javascript"
+      src="https://darryncampbell-pubnub.github.io/pubnub-demo-utils/js/interactive-demo-interface/v2/demo-interface.js"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <div class="top">
+      <a href="home.html">end chatting</a>
+      <a href="home.html">next chat</a>
+      <p id="subjectH"></p>
+    </div>
+    <div class="flex-container">
+      <div id="outputDiv" class="flex-child"></div>
+    </div>
+    <input id="input" placeholder="Type your message and press enter" />
+
+    <!--  Begin count: lines of code to create a chat app with the PubNub SDK (count ;)-->
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.7.2.0.min.js"></script>
+    <script>
+      document.getElementById("subjectH").innerText =
+        "your side is: " + localStorage.getItem("sideInDiscussion");
+      var countTx = 0,
+        countRx = 0,
+        id = "user_" + Math.random();
+      var ansI = 0;
+      var ansArr = [
+        "messi is better than ronaldo",
+        "than tell me why ronaldo is better?",
+        "okay but messi has more assists",
+        "בור ועם הארץ",
+      ];
+      (function () {
+        var pubnub = new PubNub({
+          publishKey: "pub-c-1e99121a-6e82-4fff-a454-55f553587abd",
+          subscribeKey: "sub-c-6a168d02-729a-40a1-8b97-b211f600085d",
+          userId: id,
+        }); // Your PubNub keys here. Get them from https://dashboard.pubnub.com.
+        var box = document.getElementById("outputDiv"),
+          input = document.getElementById("input"),
+          channel = "10chat";
+        pubnub.addListener({
+          message: function (m) {
+            box.innerHTML += newRow(m.message, m.publisher);
+            if (id == m.publisher && ansI < ansArr.length) {
+              box.innerHTML += newRow(ansArr[ansI++], "test_publisher");
+            }
+            box.scrollTop = box.scrollHeight;
+          },
+        });
+        pubnub.subscribe({ channels: [channel] }); // Subscribe to a channel.
+        input.addEventListener("keypress", function (e) {
+          (e.keyCode || e.charCode) === 13 &&
+            input.value != "" &&
+            pubnub.publish({
+              // Publish new message when enter is pressed.
+              channel: channel,
+              message: input.value,
+              x: (input.value = ""),
+            });
+        });
+      })();
+      // End count: lines of code to create a chat app with the PubNub SDK.
+
+      hljs.highlightAll();
+
+      function newRow(m, publisher) {
+        var date =
+          "<br><span class='messageTime'>" +
+          new Date().toLocaleString() +
+          "</span>";
+        var you = "";
+        var AI = "";
+        var messageClass = "messageThem";
+        var message = ("" + m).replace(/[<>]/g, "");
+        var AI_lines = [
+          "",
+          "",
+          "not exactly, ronaldo has the most goals,but he has 891 in fact",
+        ];
+
+        if (id === publisher) {
+          you =
+            "<span class='youText'>" +
+            localStorage.getItem("userName") +
+            " </span>";
+          if (AI_lines[countTx] != "") {
+            AI =
+              "<span class='AI' id='AbI'> AI says: " +
+              AI_lines[countTx] +
+              "</span>";
+          }
+          messageClass = "messageYou";
+          // Interactive Demo only
+          actionCompleted({ action: "Send a message" });
+          countTx++;
+          if (countTx == 5) {
+            // Interactive Demo only
+            actionCompleted({ action: "Send 5 messages", debug: true });
+          }
+        } else {
+          // Interactive Demo only
+          actionCompleted({
+            action: "Open the app in another tab and receive a message",
+          });
+          countRx++;
+          if (countRx == 3) {
+            // Interactive Demo only
+            actionCompleted({ action: "Receive 3 messages", debug: true });
+          }
+        }
+        return (
+          "<div class='" +
+          messageClass +
+          "'>" +
+          message +
+          you +
+          date +
+          AI +
+          "</div>"
+        );
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+#bar {
+  position: absolute;
+  left: 200px;
+  top: 80px;
+}
+.menuItem {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding-top: 12px;
+  padding-bottom: 2px;
+  background-color: #ededed;
+  float: left;
+  display: flex;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+}
+#slider {
+  background-color: red;
+  height: 5px;
+  width: 150px;
+  opacity: 0.8;
+  margin-left: 0px;
+  border-radius: 1px;
+}
+.top {
+  background-color: #f0f0f0;
+  display: flex;
+  padding: 20px 40px;
+  gap: 40px;
+}
+.top a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+  border: solid 1px black;
+  color: black;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: white;
+}
+.top a:active {
+  scale: 97%;
+}
+.top p {
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+}
+
+.flex-container {
+  height: 78vh;
+  display: flex;
+  overflow: auto;
+  background-color: black;
+}
+
+.flex-child {
+  flex: 1;
+}
+
+.code-block {
+  display: none;
+  font-size: small;
+}
+
+.flex-child:first-child {
+  flex: 2;
+
+  background-color: #f0f0f0;
+  flex-direction: column;
+
+  height: 100%;
+  overflow: auto;
+}
+
+@media (min-width: 768px) {
+  .code-block {
+    display: block;
+  }
+}
+
+html * {
+  font-family: "Poppins";
+}
+
+input {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 20px;
+  width: 90vw;
+  padding: 6px 15px 6px 15px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  font-size: medium;
+}
+
+h1 {
+  margin: 0;
+}
+
+.messageYou {
+  width: 90%;
+  padding: 6px 20px;
+  margin: 16px;
+  background-color: #c2d3e9;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.1px;
+  box-sizing: border-box;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  float: right;
+}
+.AI {
+  padding: 10px 40px;
+  background-color: pink;
+  border-radius: 20px;
+  position: relative;
+  height: fit-content;
+  top: 10px;
+  border: solid 0.1px black;
+}
+
+.messageThem {
+  width: 90%;
+  padding: 6px 20px;
+  margin: 8px;
+  background-color: #f3f3f3;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.1px;
+  border-width: 0.1px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  float: left;
+}
+
+.youText {
+  float: right;
+}
+
+.messageTime {
+  font-size: x-small;
+  float: right;
+}
