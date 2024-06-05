@@ -1,0 +1,18 @@
+# Dependency directory
+node_modules/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Build directory
+dist/
+
+# Logs and databases
+*.log
+*.sqlite
+
+.env
